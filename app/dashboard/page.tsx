@@ -1,6 +1,8 @@
 import Link from "next/link";
 import prisma from "../lib/prisma";
 
+export const revalidate = 5;
+
 export default async function Posts() {
   const users = await prisma.user.findMany({ take: 10 });
 
