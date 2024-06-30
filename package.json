@@ -4,15 +4,23 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p 3001",
-    "build": "next build",
+    "build": "prisma generate && next build",
     "start": "next start -p 3001",
     "lint": "next lint",
-    "test": "vitest"
+    "test": "vitest",
+    "start:db": "docker compose -f compose.local.yml up -d",
+    "stop:db": "docker-compose -f compose.local.yml down",
+    "prisma:dev": "bunx prisma migrate dev",
+    "prisma:deploy": "bunx prisma migrate deploy",
+    "prisma:reset": "bunx prisma migrate reset",
+    "prisma:studio": "bunx prisma studio",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
+    "@prisma/client": "^5.16.1",
+    "next": "14.2.4",
     "react": "^18",
-    "react-dom": "^18",
-    "next": "14.2.4"
+    "react-dom": "^18"
   },
   "devDependencies": {
     "@happy-dom/global-registrator": "^14.12.3",
@@ -25,6 +33,7 @@
     "eslint-config-next": "14.2.4",
     "jsdom": "^24.1.0",
     "postcss": "^8",
+    "prisma": "^5.16.1",
     "tailwindcss": "^3.4.1",
     "typescript": "^5",
     "vitest": "^1.6.0"
