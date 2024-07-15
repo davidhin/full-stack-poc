@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { getSession } from "./lib/auth";
-import Link from "next/link";
+import NavigationSidebar from "./components/NavigationSidebar/NavigationSidebar";
 
 export const metadata: Metadata = {
   title: "Home",
@@ -12,18 +11,10 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const session = await getSession();
-
   return (
     <html lang="en">
       <body>
-        <p>
-          {session ? (
-            <Link href="/api/auth/signout">Sign Out</Link>
-          ) : (
-            <Link href="/api/auth/signin">Sign In</Link>
-          )}
-        </p>
+        <NavigationSidebar />
         <main>{children}</main>
       </body>
     </html>

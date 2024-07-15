@@ -1,5 +1,6 @@
 import GoogleProvider from "next-auth/providers/google";
-import { getServerSession } from "next-auth";
+import { getServerSession, Session } from "next-auth";
+import { Overrides } from "../types/overrides";
 import prisma from "../lib/prisma";
 
 export const authOptions = {
@@ -30,6 +31,12 @@ export const authOptions = {
   },
 };
 
-export async function getSession() {
+export async function getSession(
+  overrides?: Overrides
+): Promise<Session | null> {
+  if (overrides && "session" in overrides && overrides.session !== undefined) {
+    return overrides.session;
+  }
+
   return await getServerSession(authOptions);
 }
