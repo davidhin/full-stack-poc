@@ -1,3 +1,4 @@
+import Button from "@/app/components/button";
 import { getSession } from "@/app/lib/auth";
 import { Overrides } from "@/app/types/overrides";
 import Link from "next/link";
@@ -11,7 +12,7 @@ export default async function NavigationSidebar({
 
   return (
     <div>
-      {" "}
+      <Button variant="primary">Click Me</Button>
       <p>
         {session ? (
           <Link href="/api/auth/signout">Sign Out</Link>
