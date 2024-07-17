@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import NavigationSidebar from "@/app/components/navigation-sidebar";
+import "@/app/globals.css";
 
 export const metadata: Metadata = {
   title: "Home",
