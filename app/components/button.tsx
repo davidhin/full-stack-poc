@@ -1,11 +1,14 @@
+import { cn } from "@/app/lib/cn";
 import { cva } from "class-variance-authority";
 
 type ButtonProps = React.HTMLAttributes<HTMLButtonElement> & {
   variant: "primary" | "secondary";
 };
 
-export default function Button({ variant, ...props }: ButtonProps) {
-  return <button {...props} className={buttonVariants({ variant })} />;
+export default function Button({ className, variant, ...props }: ButtonProps) {
+  return (
+    <button {...props} className={cn(buttonVariants({ variant }), className)} />
+  );
 }
 
 const buttonVariants = cva(
@@ -13,7 +16,7 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        primary: "bg-gradient-to-r from-primary-500 to-primary-700 text-black",
+        primary: "bg-blue-300 text-black",
         secondary: "bg-greyscale-700 text-white",
       },
     },
