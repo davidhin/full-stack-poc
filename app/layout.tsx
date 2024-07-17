@@ -14,9 +14,13 @@ export default async function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className="flex">
         <NavigationSidebar />
-        <main>{children}</main>
+        <div className="flex justify-center grow w-full bg-green-500">
+          <main className="p-8 grow max-w-screen-lg bg-blue-300">
+            {children}
+          </main>
+        </div>
       </body>
     </html>
   );
