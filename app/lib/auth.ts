@@ -1,7 +1,7 @@
 import GoogleProvider from "next-auth/providers/google";
 import { getServerSession, Session } from "next-auth";
-import { Overrides } from "../types/overrides";
-import prisma from "../lib/prisma";
+import { Overrides } from "@/app/types/overrides";
+import prisma from "@/app/lib/prisma";
 
 export const authOptions = {
   providers: [

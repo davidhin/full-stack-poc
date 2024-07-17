@@ -1,6 +1,6 @@
 import { expect, test } from "vitest";
 import { render, screen } from "@testing-library/react";
-import NavigationSidebar from "./NavigationSidebar";
+import NavigationSidebar from "../app/components/navigation-sidebar";
 
 test("Page with user session", async () => {
   const overrides = {

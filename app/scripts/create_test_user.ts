@@ -1,4 +1,4 @@
-import prisma from "../lib/prisma.js";
+import prisma from "@/app/lib/prisma.js";
 
 // create a new user
 let created = await prisma.user.create({

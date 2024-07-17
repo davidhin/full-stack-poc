@@ -1,5 +1,5 @@
-import { getSession } from "../../lib/auth";
-import { Overrides } from "../../types/overrides";
+import { getSession } from "@/app/lib/auth";
+import { Overrides } from "@/app/types/overrides";
 import Link from "next/link";
 
 export default async function NavigationSidebar({
