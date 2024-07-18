@@ -1,16 +1,15 @@
+"use client";
+
 import Button from "@/app/components/button";
 import * as Popover from "@radix-ui/react-popover";
-import { getSession } from "@/app/lib/auth";
-import { Overrides } from "@/app/types/overrides";
+import { Session } from "next-auth";
 import Link from "next/link";
 
-export default async function NavigationSidebar({
-  overrides,
+export default function NavigationSidebar({
+  session,
 }: {
-  overrides?: Overrides;
+  session?: Session | null;
 }) {
-  const session = await getSession(overrides);
-
   return (
     <div className="bg-red-200 p-8 w-80 flex flex-col h-screen">
       <Popover.Root>
