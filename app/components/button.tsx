@@ -1,4 +1,4 @@
-import { cn } from "@/app/lib/cn";
+import { cn } from "@/app/lib/utils";
 import { cva } from "class-variance-authority";
 
 type ButtonProps = React.HTMLAttributes<HTMLButtonElement> & {
