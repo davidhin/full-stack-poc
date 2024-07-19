@@ -24,14 +24,14 @@ export default function Sidebar({ session }: { session?: Session | null }) {
             </Button>
           </DrawerTrigger>
           <DrawerContent className="border-none rounded-none rounded-r-sm rounded-br-sm w-2/3 h-full">
-            <DrawerHeader className="text-left h-full">
+            <DrawerHeader className="text-left h-full p-8">
               <SidebarContent session={session} />
             </DrawerHeader>
           </DrawerContent>
         </Drawer>
       </div>
       <div className="hidden md:flex">
-        <Box className="bg-red-200 p-6 w-60">
+        <Box className="bg-red-200 p-8 w-60">
           <SidebarContent session={session} />
         </Box>
       </div>
