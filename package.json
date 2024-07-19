@@ -18,16 +18,22 @@
   },
   "dependencies": {
     "@prisma/client": "^5.16.1",
+    "@radix-ui/react-dialog": "^1.1.1",
     "@radix-ui/react-popover": "1.1.1",
+    "@radix-ui/react-slot": "^1.1.0",
     "@radix-ui/themes": "^3.1.1",
     "@vercel/postgres": "^0.9.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "lucide-react": "^0.408.0",
     "next": "14.2.4",
     "next-auth": "^4.24.7",
     "react": "^18",
     "react-dom": "^18",
     "tailwind-merge": "^2.4.0",
+    "tailwindcss-animate": "^1.0.7",
+    "usehooks-ts": "^3.1.0",
+    "vaul": "^0.9.1",
     "vite-tsconfig-paths": "^4.3.2"
   },
   "devDependencies": {
