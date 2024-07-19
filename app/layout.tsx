@@ -21,8 +21,8 @@ export default async function RootLayout({
     <html lang="en">
       <body>
         <Theme>
-          <Flex>
-            <Sidebar session={session} />
+          <Flex className="h-screen">
+            <Sidebar session={session}  />
             <Container className="bg-green-200">
               <Box className="bg-blue-300 p-16">{children}</Box>
             </Container>
