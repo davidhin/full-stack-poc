@@ -4,6 +4,7 @@ import * as React from "react";
 import { Session } from "next-auth";
 import Link from "next/link";
 import { buttonVariants } from "@/app/components/ui/button";
+import { cn } from "@/app/lib/utils";
 
 export default function SidebarContent({
   session,
@@ -11,21 +12,24 @@ export default function SidebarContent({
   session?: Session | null;
 }) {
   return (
-    <div>
+    <div className="flex flex-col h-full">
       {session ? (
-        <>
+        <div className="flex flex-col h-full">
           <p className="text-2xl font-extrabold">{session?.user?.name}</p>
           <p className="mt-1 mb-4">{session?.user?.email}</p>
           <Link
-            className={buttonVariants({ variant: "outline" })}
+            className={cn(
+              buttonVariants({ variant: "default" }),
+              "w-full mt-auto"
+            )}
             href="/api/auth/signout"
           >
             Sign Out
           </Link>
-        </>
+        </div>
       ) : (
         <Link
-          className={buttonVariants({ variant: "outline" })}
+          className={cn(buttonVariants({ variant: "default" }), "w-full")}
           href="/api/auth/signin"
         >
           Sign In

@@ -2,12 +2,11 @@
 
 import * as React from "react";
 import { Session } from "next-auth";
-import { Box } from "@radix-ui/themes";
+import { Box, Flex } from "@radix-ui/themes";
 import {
   Drawer,
   DrawerContent,
   DrawerHeader,
-  DrawerTitle,
   DrawerTrigger,
 } from "@/app/components/ui/drawer";
 import { Button } from "@/app/components/ui/button";
@@ -25,14 +24,14 @@ export default function Sidebar({ session }: { session?: Session | null }) {
             </Button>
           </DrawerTrigger>
           <DrawerContent className="border-none rounded-none rounded-r-sm rounded-br-sm w-2/3 h-full">
-            <DrawerHeader className="text-left">
+            <DrawerHeader className="text-left h-full">
               <SidebarContent session={session} />
             </DrawerHeader>
           </DrawerContent>
         </Drawer>
       </div>
-      <div className="hidden md:block">
-        <Box className="bg-red-200 p-6 w-60 h-screen">
+      <div className="hidden md:flex">
+        <Box className="bg-red-200 p-6 w-60">
           <SidebarContent session={session} />
         </Box>
       </div>
