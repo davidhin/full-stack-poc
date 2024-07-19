@@ -10,7 +10,7 @@ export default function SidebarContent({
   session?: Session | null;
 }) {
   return (
-    <>
+    <div>
       <h1>{session?.user?.name}</h1>
       {session?.user?.email}
       <br />
@@ -19,6 +19,6 @@ export default function SidebarContent({
       ) : (
         <Link href="/api/auth/signin">Sign In</Link>
       )}
-    </>
+    </div>
   );
 }

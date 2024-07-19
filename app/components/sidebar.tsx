@@ -26,7 +26,7 @@ export default function Sidebar({ session }: { session?: Session | null }) {
               <Menu />
             </Button>
           </DrawerTrigger>
-          <DrawerContent className="border-none rounded-none rounded-r-sm rounded-br-sm w-2/3 h-screen">
+          <DrawerContent className="border-none rounded-none rounded-r-sm rounded-br-sm w-2/3 h-full">
             <DrawerHeader className="text-left">
               <SidebarContent session={session} />
               <DrawerDescription>
