@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import NavigationSidebar from "@/app/components/navigation-sidebar";
+import Sidebar from "@/app/components/sidebar";
 import "@/app/globals.css";
 import { getSession } from "@/app/lib/auth";
 import { Box, Flex, Container, Theme } from "@radix-ui/themes";
@@ -22,7 +22,7 @@ export default async function RootLayout({
       <body>
         <Theme>
           <Flex>
-            <NavigationSidebar session={session} />
+            <Sidebar session={session} />
             <Container className="bg-green-200">
               <Box className="bg-blue-300 p-16">{children}</Box>
             </Container>
