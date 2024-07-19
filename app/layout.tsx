@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import NavigationSidebar from "@/app/components/navigation-sidebar";
 import "@/app/globals.css";
 import { getSession } from "@/app/lib/auth";
+import { Box, Flex, Container, Theme } from "@radix-ui/themes";
+import "@radix-ui/themes/styles.css";
 
 export const metadata: Metadata = {
   title: "Home",
@@ -17,13 +19,15 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className="flex">
-        <NavigationSidebar session={session} />
-        <div className="flex justify-center grow w-full bg-green-500">
-          <main className="p-8 grow max-w-screen-lg bg-blue-300">
-            {children}
-          </main>
-        </div>
+      <body>
+        <Theme>
+          <Flex>
+            <NavigationSidebar session={session} />
+            <Container className="bg-green-200">
+              <Box className="bg-blue-300 p-16">{children}</Box>
+            </Container>
+          </Flex>
+        </Theme>
       </body>
     </html>
   );
