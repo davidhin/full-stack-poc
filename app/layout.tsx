@@ -22,7 +22,7 @@ export default async function RootLayout({
       <body>
         <Theme>
           <Flex className="h-screen">
-            <Sidebar session={session}  />
+            <Sidebar session={session} />
             <Container className="bg-green-200">
               <Box className="bg-blue-300 p-16">{children}</Box>
             </Container>
