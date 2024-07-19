@@ -18,11 +18,11 @@ export default function Sidebar({ session }: { session?: Session | null }) {
       <div className="md:hidden">
         <Drawer direction="left">
           <DrawerTrigger asChild>
-            <Button variant="link" className="fixed hover:opacity-50 ">
+            <Button variant="link" className="fixed hover:opacity-50">
               <Menu />
             </Button>
           </DrawerTrigger>
-          <DrawerContent className="border-none rounded-none rounded-r-sm rounded-br-sm w-60 h-screen">
+          <DrawerContent className="border-none rounded-none rounded-r-sm rounded-br-sm w-2/3 h-screen">
             <SidebarContent session={session} />
           </DrawerContent>
         </Drawer>
