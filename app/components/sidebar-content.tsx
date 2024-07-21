@@ -3,8 +3,9 @@
 import * as React from "react";
 import { Session } from "next-auth";
 import Link from "next/link";
-import { buttonVariants } from "@/app/components/ui/button";
+import { Button, buttonVariants } from "@/app/components/ui/button";
 import { cn } from "@/app/lib/utils";
+import { usePathname } from "next/navigation";
 
 type SidebarContextType = {
   session: Session | null;
@@ -34,56 +35,84 @@ const SidebarProvider = ({
 
 const SidebarSignout = ({ className }: { className?: string }) => {
   const { session } = useSidebarContext();
+  if (!session) return <></>;
+
   return (
-    <>
-      {session && (
-        <Link
-          className={cn(
-            buttonVariants({ variant: "default" }),
-            "w-full",
-            className,
-          )}
-          href="/api/auth/signout"
-        >
-          Sign Out
-        </Link>
-      )}
-    </>
+    <div className={cn("p-8", className)}>
+      <Link
+        className={cn(buttonVariants({ variant: "default" }), "w-full")}
+        href="/api/auth/signout"
+      >
+        Sign Out
+      </Link>
+    </div>
   );
 };
 
 const SidebarSignin = ({ className }: { className?: string }) => {
   const { session } = useSidebarContext();
+  if (session) return <></>;
+
   return (
-    <div>
-      {!session && (
-        <Link
-          className={cn(
-            buttonVariants({ variant: "default" }),
-            "w-full",
-            className,
-          )}
-          href="/api/auth/signin"
-        >
-          Sign In
-        </Link>
-      )}
+    <div className={cn("p-8", className)}>
+      <Link
+        className={cn(
+          buttonVariants({ variant: "default" }),
+          "w-full",
+          className,
+        )}
+        href="/api/auth/signin"
+      >
+        Sign In
+      </Link>
     </div>
   );
 };
 
 const SidebarProfile = () => {
   const { session } = useSidebarContext();
+  if (!session) return <></>;
+
   return (
-    <>
-      {session && (
-        <>
-          <p className="text-2xl font-extrabold">{session?.user?.name}</p>
-          <p>{session?.user?.email}</p>
-        </>
-      )}
-    </>
+    <div className="p-8">
+      <p className="text-2xl font-extrabold">{session?.user?.name}</p>
+      <p>{session?.user?.email}</p>
+    </div>
   );
 };
 
-export { SidebarProvider, SidebarSignout, SidebarSignin, SidebarProfile };
+const SidebarLink = ({
+  setDrawerIsOpen,
+  path,
+  children,
+}: {
+  setDrawerIsOpen?: (value: boolean) => void;
+  path: string;
+  children: React.ReactNode;
+}) => {
+  const handleClick = () => {
+    if (setDrawerIsOpen) {
+      setDrawerIsOpen(false);
+    }
+  };
+
+  return (
+    <Button
+      variant={usePathname() === path ? "secondarySelected" : "ghost"}
+      justify="left"
+      className="rounded-none p-8 text-lg"
+      onClick={handleClick}
+      asChild
+    >
+      <Link href={path}>{children}</Link>
+    </Button>
+  );
+};
+
+export {
+  SidebarProvider,
+  SidebarSignout,
+  SidebarSignin,
+  SidebarProfile,
+  SidebarLink,
+};

@@ -1,4 +1,3 @@
-import Link from "next/link";
 import prisma from "@/app/lib/prisma";
 
 export const revalidate = 5;
@@ -14,7 +13,6 @@ export default async function Posts() {
           <li key={user.id}>{`${user.name} -> ${user.email}`}</li>
         ))}
       </ul>
-      <Link href="/">Go Back</Link>
     </div>
   );
 }
