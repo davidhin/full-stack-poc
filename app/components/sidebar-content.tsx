@@ -76,7 +76,7 @@ const SidebarProfile = () => {
   return (
     <div className="p-8">
       <p className="text-2xl font-extrabold">{session?.user?.name}</p>
-      <p>{session?.user?.email}</p>
+      <p className="font-light">{session?.user?.email}</p>
     </div>
   );
 };
@@ -100,7 +100,7 @@ const SidebarLink = ({
     <Button
       variant={usePathname() === path ? "secondarySelected" : "ghost"}
       justify="left"
-      className="rounded-none p-8 text-lg"
+      className="rounded-none p-8 text-lg font-normal"
       onClick={handleClick}
       asChild
     >
