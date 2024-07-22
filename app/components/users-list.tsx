@@ -1,6 +1,5 @@
 "use client";
 
-import { fetchUsers } from "@/app/lib/users";
 import { User } from "@prisma/client";
 import React, { useEffect, useState } from "react";
 
@@ -8,11 +7,12 @@ const UsersList = () => {
   const [users, setUsers] = useState<User[]>([]);
 
   useEffect(() => {
-    async function fetch() {
-      const fetchedUsers = await fetchUsers();
-      setUsers(fetchedUsers);
+    async function fetchUsers() {
+      let fetchedUsers = await fetch("/api/all-users");
+      let fetchedUsersParsed: User[] = await fetchedUsers.json();
+      setUsers(fetchedUsersParsed);
     }
-    fetch();
+    fetchUsers();
   }, []);
 
   return (
