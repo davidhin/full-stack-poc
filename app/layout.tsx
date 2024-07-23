@@ -3,6 +3,7 @@ import Sidebar from "@/app/components/sidebar";
 import "@/app/globals.css";
 import { getSession } from "@/app/lib/auth";
 import { Box, Flex, Container, Theme } from "@radix-ui/themes";
+import { ThemeProvider } from "@/app/components/theme-provider";
 import "@radix-ui/themes/styles.css";
 
 export const metadata: Metadata = {
@@ -20,14 +21,21 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Theme>
-          <Flex className="h-screen">
-            <Sidebar session={session} />
-            <Container className="bg-green-200">
-              <Box className="bg-blue-300 p-16">{children}</Box>
-            </Container>
-          </Flex>
-        </Theme>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Theme>
+            <Flex className="h-screen">
+              <Sidebar session={session} />
+              <Container>
+                <Box className="p-16">{children}</Box>
+              </Container>
+            </Flex>
+          </Theme>
+        </ThemeProvider>
       </body>
     </html>
   );

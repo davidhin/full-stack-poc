@@ -19,6 +19,7 @@ import {
   SidebarSignin,
   SidebarSignout,
 } from "@/app/components/sidebar-content";
+import { ModeToggle } from "@/app/components/ui/mode-toggle";
 
 export default function Sidebar({ session }: { session: Session | null }) {
   const [drawerIsOpen, setDrawerIsOpen] = React.useState(false);
@@ -58,7 +59,10 @@ export default function Sidebar({ session }: { session: Session | null }) {
         <SidebarProfile />
         <SidebarLink path="/">Home</SidebarLink>
         <SidebarLink path="/dashboard">Dashboard</SidebarLink>
-        <SidebarSignout className="mt-auto" />
+        <footer className="mt-auto">
+          <ModeToggle />
+          <SidebarSignout />
+        </footer>
       </div>
     </SidebarProvider>
   );
