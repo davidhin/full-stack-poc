@@ -28,7 +28,7 @@ export default async function RootLayout({
           disableTransitionOnChange
         >
           <Theme>
-            <Flex className="h-screen">
+            <Flex className="h-screen bg-background">
               <Sidebar session={session} />
               <Container>
                 <Box className="p-16">{children}</Box>

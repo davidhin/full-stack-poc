@@ -54,7 +54,7 @@ export default function Sidebar({ session }: { session: Session | null }) {
           </DrawerContent>
         </Drawer>
       </div>
-      <div className="hidden h-full w-60 flex-col md:flex">
+      <div className="hidden h-full w-60 flex-col bg-secondary md:flex">
         <SidebarSignin />
         <SidebarProfile />
         <SidebarLink path="/">Home</SidebarLink>

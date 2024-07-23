@@ -40,7 +40,7 @@ const SidebarSignout = ({ className }: { className?: string }) => {
   return (
     <div className={cn("p-8", className)}>
       <Link
-        className={cn(buttonVariants({ variant: "default" }), "w-full")}
+        className={cn(buttonVariants({ variant: "outline" }), "w-full")}
         href="/api/auth/signout"
       >
         Sign Out
@@ -98,9 +98,9 @@ const SidebarLink = ({
 
   return (
     <Button
-      variant={usePathname() === path ? "secondarySelected" : "ghost"}
+      variant={usePathname() === path ? "linkSidebarSelected" : "linkSidebar"}
       justify="left"
-      className="rounded-none p-8 text-lg font-normal"
+      className="rounded-none p-8"
       onClick={handleClick}
       asChild
     >
